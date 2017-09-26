@@ -57,6 +57,8 @@
 					self.config.closeBtn.fadeOut();
 				},1000);
 				
+			}).on('click',function(e){
+				e.stopPropagation();
 			});
 			//绑定静音按钮
 			self.config.volumeButton.on('click',function(){
@@ -105,7 +107,12 @@
 				},500);
 				
 				e.stopPropagation();
-			})
+			});
+			// 视频区域外点击关闭视频
+			$(document).on('click',function(){
+				self.config.closeBtn.click();
+			});
+			$
 		},
 		// 主循环
 		mainLoop:function(){
@@ -164,7 +171,8 @@
 
 // 添加点击视频区块播放事件
 
-$('#musicVideo .musicItem').on('click',function(){
+$('#musicVideo .musicItem').on('click',function(e){
+	e.stopPropagation();
 	// console.log('1');
 	$('.loading').fadeIn();
 	$(window).scroll();
