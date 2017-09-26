@@ -30,65 +30,75 @@ $(function () {
 	});
 })();
 
-// (function(){
-// 	$('.index').click(function(){
-// 		$('#carousel').html('');
-// 		$('#member').html('');
-// 		$('#musicVideo').html('');
-// 		$('#waterfall').html('');
-// 		$('#leaveMessage').html('');
+// news-loading
+// 
+(function(){
+	var curPage=1;
+	getNewsList(1)
+	function getNewsList(page){
+		$.ajax({
+			url:'https://idol.yinyuetai.com/article/artist-articles?&artistId=1559&page='+page+'&pageSize=10',
+			dataType:'jsonp',
+			type:'GET',
+			success:function(data){
+				// console.log(data);
+				// console.log(data.articles);
 
-// 		$.get('index-data.html',function(data){
-// 			console.log(data);
-// 			$('#carousel').html(data)
-// 		})
-// 	});
-// 	$('.member').click(function(){
-// 		$('#carousel').html('');
-// 		$('#member').html('');
-// 		$('#musicVideo').html('');
-// 		$('#waterfall').html('');
-// 		$('#leaveMessage').html('');
+				var data=data.articles;
+				
+				for (var i = 0; i < data.length; i++) {
+					var str='';
+					
+						str+='<div class="row">';
+							str+='<div class="news-image col-md-5 col-sm-5 col-xs-12">';
+								str+='<a href="http://news.yinyuetai.com/article/'+data[i].id+'">';
+									str+='<img class="media-object" src="'+data[i].image+'" alt="...">';
+								str+='</a>';
+							str+='</div>';
+							str+='<div class="news-info col-md-7 col-sm-7 col-xs-12">';
+								str+='<h4 class="news-heading">';
+									str+='<p class="news-title">';
+										str+='<a href="http://news.yinyuetai.com/article/'+data[i].id+'">'+data[i].title+'</a>';
+									str+='</p>';
+									str+='<span class="news-date">音悦台&nbsp;&nbsp;&nbsp;&nbsp;'+data[i].datetime+'</span>';
+								str+='</h4>';
+								str+='<div class="news-details">';
+									str+='<a href="http://news.yinyuetai.com/article/'+data[i].id+'">'+data[i].summary+'</a>';
+								str+='</div>';
+							str+='</div>';
+						str+='</div>';
 
-// 		$.get('member-data.html',function(data){
-// 			console.log(data);
-// 			$('#member').html(data)
-// 		})
-// 	})
-// 	$('.musicv').click(function(){
-// 		$('#carousel').html('');
-// 		$('#member').html('');
-// 		$('#musicVideo').html('');
-// 		$('#waterfall').html('');
-// 		$('#leaveMessage').html('');
+					$('<div class="news-item"></div>').html(str).appendTo($('.news-content'));
+				}
+				// console.log(str);
+					
+			},
+			error:function(){
+				console.log('error');
+			}
+		})
+	}
 
-// 		$.get('musicVideo-data.html',function(data){
-// 			console.log(data);
-// 			$('#musicVideo').html(data)
-// 		})
-// 	})
-// 	$('.waterfall').click(function(){
-// 		$('#carousel').html('');
-// 		$('#member').html('');
-// 		$('#musicVideo').html('');
-// 		$('#waterfall').html('');
-// 		$('#leaveMessage').html('');
 
-// 		$.get('waterfall-data.html',function(data){
-// 			console.log(data);
-// 			$('#waterfall').html(data)
-// 		})
-// 	})
-// 	$('.leavemessage').click(function(){
-// 		$('#carousel').html('');
-// 		$('#member').html('');
-// 		$('#musicVideo').html('');
-// 		$('#waterfall').html('');
-// 		$('#leaveMessage').html('');
+	// loading-more-news
+	var $loading=$('.loading-more');
+ 	$loading.on('click',function(){
+ 		// console.log($(this));
+ 		$(this).html('');
+ 		$(this).css({
+ 			'background-image': 'url(images/loadingMore.gif)',
+			'background-color': 'rgb(252,210,88)',
+ 		});
+ 		setTimeout(function(){
+ 			curPage++;
+ 			getNewsList(curPage);
+ 			$loading.html('点击加载更多内容');
+ 			$loading.css({
+ 			'background-image': '',
+			'background-color': '',
+ 		});
+ 		},1200);
+ 	})
 
-// 		$.get('leaveMessage-data.html',function(data){
-// 			console.log(data);
-// 			$('#leaveMessage').html(data)
-// 		})
-// 	})
-// })();
+})()
+
