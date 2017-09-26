@@ -44,7 +44,6 @@
 			// menu面板显示隐藏
 			self.config.video.on('mouseenter',function(){
 				console.log('enter');
-				
 				self.config.menu.stop().animate({'bottom':'0px'});
 				self.config.closeBtn.fadeIn();
 			}).on('mouseleave',function(){
