@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>T-ara</title>
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+  <link rel="icon" href="images/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/font.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/leaveMessage.css">
+  <!--[if lt IE 9]>
+    <script src="http://apps.bdimg.com/libs/html5shiv/r29/html5.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+	<!-- 导航菜单部分 -->
+	<header id="nav">
+		<nav class="navbar navbar-reset reset-margin-b navbar-fixed-top">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand reset-padding" data-toggle="tooltip" data-placement="bottom" title="百度-T-ara组合吧" href="http://www.tarabar.cn" target="_blank">
+						<i class="icon-crown"></i>
+						<span class="crown">皇冠团</span>
+					</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="index.html" target="_blank">首页<span class="sr-only">(current)</span></a></li>
+						<li><a href="member.html" target="_blank">成员介绍</a></li>
+						<li><a href="musicVideo.html" target="_blank">音乐作品</a></li>
+						<li><a href="waterfall.html" target="_blank">照片墙</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="active"><a href="javascript:;" target="_blank">留言板</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+	</header>
+	<!-- 导航菜单部分结束 -->
+	<!-- 留言内容部分 -->
+	<section id='leaveMessage'>
+		<div class="container-fluid reset-padding">
+			<div class="banner-liuyan"></div>
+			<!-- <span class="contact-title">联系我</span> -->
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<!-- <div class="banner-liuyan"></div> -->
+					<span class="header-title">联系我</span>
+					<h3>留言信息</h3>
+					<div id="messageList">
+						<div class="media">
+						  <div class="media-left">
+						    <a href="#">
+						      <img class="media-object" src="images/nikeshow.jpg" alt="...">
+						    </a>
+						  </div>
+						  <div class="media-body">
+						    <h4 class="media-heading">
+							    <p class="leaveName">张晓东</p>
+							    <span class="leaveTime">2017/09/09 14:14</span>
+						    </h4>
+						    <div class="leaveInfo">这是一条留言内容这是一条留言内容这是一条留言内容这是一条留言内容</div>
+						  </div>
+						  <i class="icon-bin"></i>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-12">
+					<h3>留言</h3>
+					<div class="leavePanel">
+						<input type="text" id="name" placeholder="称谓">
+						<i class="icon-info" data-toggle="tooltip" data-placement="right" title="请输入以中文开头，可包含字母数字下划线的2~10个字符~" hidden></i>
+						<textarea id="info" cols="30" rows="8" placeholder="请输入留言..."></textarea>
+						<p class="tip" hidden>留言为空不太好噢~先写点东西再提交吧~</p>
+						<button id="submit-info">留下脚印</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- 留言内容部分结束 -->
+	<footer class="footer">
+		<div class="container">
+			<p class="pull-left">Copyright @2017 Design by youlin</p>
+			<a href="mailto:734435946@qq.com?subject=关于T-ara皇冠团站的建议" class="icon-envelop pull-right" data-toggle="tooltip" data-placement="top" title="有什么建议，发送邮件给我噢~"></a>
+		</div>
+	</footer>
+	<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="js/script.js"></script>
+	<script src="js/leavemessage.js"></script>
+</body>
+</html>
