@@ -51,19 +51,19 @@ $(function () {
 					
 						str+='<div class="row">';
 							str+='<div class="news-image col-md-5 col-sm-5 col-xs-12">';
-								str+='<a href="http://news.yinyuetai.com/article/'+data[i].id+'">';
+								str+='<a href="http://news.yinyuetai.com/article/'+data[i].id+'" target="_blank">';
 									str+='<img class="media-object" src="'+data[i].image+'" alt="...">';
 								str+='</a>';
 							str+='</div>';
 							str+='<div class="news-info col-md-7 col-sm-7 col-xs-12">';
 								str+='<h4 class="news-heading">';
 									str+='<p class="news-title">';
-										str+='<a href="http://news.yinyuetai.com/article/'+data[i].id+'">'+data[i].title+'</a>';
+										str+='<a href="http://news.yinyuetai.com/article/'+data[i].id+'" target="_blank">'+data[i].title+'</a>';
 									str+='</p>';
 									str+='<span class="news-date">音悦台&nbsp;&nbsp;&nbsp;&nbsp;'+data[i].datetime+'</span>';
 								str+='</h4>';
 								str+='<div class="news-details">';
-									str+='<a href="http://news.yinyuetai.com/article/'+data[i].id+'">'+data[i].summary+'</a>';
+									str+='<a href="http://news.yinyuetai.com/article/'+data[i].id+'" target="_blank">'+data[i].summary+'</a>';
 								str+='</div>';
 							str+='</div>';
 						str+='</div>';
