@@ -106,6 +106,8 @@
 					self.config.video.find('video').attr('src','');
 				},500);
 				
+				$('#mask').fadeOut();
+
 				e.stopPropagation();
 			});
 			// 视频区域外点击关闭视频
@@ -175,7 +177,7 @@ $('#musicVideo .musicItem').on('click',function(e){
 	e.stopPropagation();
 	// console.log('1');
 	$('.loading').fadeIn();
-	$(window).scroll();
+	
 	var $video=$('#video');
 	// 获取视频src
 	var curSrc=$(this).find('img').data('src');
@@ -188,8 +190,8 @@ $('#musicVideo .musicItem').on('click',function(e){
 	});
 
 	// 获取窗口大小
-	var winWidth=$(window).width();
-	var winHeight=$(window).height();
+	var winWidth=$(window).outerWidth();
+	var winHeight=$(window).outerHeight();
 	// 获取当前滚动高度
 	var curTop=$(window).scrollTop();
 	// 判断是不是移动设备/小屏幕
@@ -216,19 +218,19 @@ $('#musicVideo .musicItem').on('click',function(e){
 		});
 	}
 	// 遮罩层
-	// $('.mask').css({
-	// 	'position':'absolute',
-	// 	'left':0,
-	// 	'top':curTop,
-	// 	'width':winWidth,
-	// 	'height':winHeight,
-	// 	'backgroundColor':'rgba(0,0,0,0.15)'
-	// })
+	var $mask=$('#mask');
+	$mask.css({
+		'position':'absolute',
+		'top':curTop,
+		'width':winWidth,
+		'height':winHeight,
+		'background-color':'rgba(255,255,255,0.35)'
+	}).fadeIn();
 
 	// 监听滚动事件
 	$(window).on('scroll',function(){
 		// 若没有播放视频不执行函数
-		if($video[0].style.display=='none'){
+		if($video[0].style.transform=='scale(0)'){
 			return false;
 		}
 		var curTop=$(window).scrollTop();
@@ -236,9 +238,9 @@ $('#musicVideo .musicItem').on('click',function(e){
 		$video.css({
 			'top':curTop+(winHeight-$video.height())/2,
 		})
-		// $('.mask').css({
-		// 	'top':curTop,
-		// })
+		$mask.css({
+			'top':curTop,
+		})
 		
 	})
 });
@@ -270,7 +272,7 @@ $(window).resize(function(){
 // loading
 // 
 	var $loadingSpan=$('.loading span');
-	$('.loading span').css({
+	$loadingSpan.css({
 		'top':($(window).height()-$loadingSpan.height())/2,
 		'left':($(window).width()-$loadingSpan.width())/2,
 	});
